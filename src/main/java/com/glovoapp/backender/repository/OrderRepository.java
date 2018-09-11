@@ -15,20 +15,20 @@ import com.google.gson.reflect.TypeToken;
 
 @Component
 public class OrderRepository {
-    private static final String ORDERS_FILE = "/orders.json";
-    private static final List<Order> orders;
+	private static final String ORDERS_FILE = "/orders.json";
+	private static final List<Order> orders;
 
-    static {
-        try (Reader reader = new InputStreamReader(OrderRepository.class.getResourceAsStream(ORDERS_FILE))) {
-            Type type = new TypeToken<List<Order>>() {
-            }.getType();
-            orders = new Gson().fromJson(reader, type);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+	static {
+		try (Reader reader = new InputStreamReader(OrderRepository.class.getResourceAsStream(ORDERS_FILE))) {
+			Type type = new TypeToken<List<Order>>() {
+			}.getType();
+			orders = new Gson().fromJson(reader, type);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-    public List<Order> findAll() {
-        return new ArrayList<>(orders);
-    }
+	public List<Order> findAll() {
+		return new ArrayList<>(orders);
+	}
 }

@@ -1,4 +1,4 @@
-package com.glovoapp.backender;
+package com.glovoapp.backender.repository;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

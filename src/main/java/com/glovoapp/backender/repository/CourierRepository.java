@@ -15,27 +15,27 @@ import com.google.gson.reflect.TypeToken;
 
 @Component
 public class CourierRepository {
-    private static final String COURIERS_FILE = "/couriers.json";
-    private static final List<Courier> couriers;
+	private static final String COURIERS_FILE = "/couriers.json";
+	private static final List<Courier> couriers;
 
-    static {
-        try (Reader reader = new InputStreamReader(CourierRepository.class.getResourceAsStream(COURIERS_FILE))) {
-            Type type = new TypeToken<List<Courier>>() {
-            }.getType();
-            couriers = new Gson().fromJson(reader, type);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+	static {
+		try (Reader reader = new InputStreamReader(CourierRepository.class.getResourceAsStream(COURIERS_FILE))) {
+			Type type = new TypeToken<List<Courier>>() {
+			}.getType();
+			couriers = new Gson().fromJson(reader, type);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-    public Courier findById(String courierId) {
-        return couriers.stream()
-                .filter(courier -> courierId.equals(courier.getId()))
-                .findFirst()
-                .orElse(null);
-    }
+	public Courier findById(String courierId) {
+		return couriers.stream()
+			.filter(courier -> courierId.equals(courier.getId()))
+			.findFirst()
+			.orElse(null);
+	}
 
-    public List<Courier> findAll() {
-        return new ArrayList<>(couriers);
-    }
+	public List<Courier> findAll() {
+		return new ArrayList<>(couriers);
+	}
 }

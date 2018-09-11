@@ -11,8 +11,8 @@ import com.glovoapp.backender.model.Order;
 import com.glovoapp.backender.model.Vehicle;
 import com.glovoapp.backender.repository.CourierRepository;
 import com.glovoapp.backender.repository.OrderRepository;
-import com.glovoapp.backender.utils.DistanceCalculator;
 import com.glovoapp.backender.sort.SortEnum;
+import com.glovoapp.backender.utils.DistanceCalculator;
 
 @Service
 public class CourierService {
