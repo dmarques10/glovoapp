@@ -8,6 +8,6 @@ import com.glovoapp.backender.model.Order;
 public class SortByFood implements Sort {
 	@Override
 	public Comparator<Order> sort(Order order, Courier courier) {
-		return Comparator.comparing(Order::getFood);
+		return Comparator.comparing(Order::getFood).reversed();
 	}
 }

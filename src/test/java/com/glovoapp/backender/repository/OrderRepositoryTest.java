@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import com.glovoapp.backender.model.Location;
 import com.glovoapp.backender.model.Order;
-import com.glovoapp.backender.repository.OrderRepository;
 
 class OrderRepositoryTest {
     @Test

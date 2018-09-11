@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import com.glovoapp.backender.model.Location;
-import com.glovoapp.backender.utils.DistanceCalculator;
 
 class DistanceCalculatorTest {
     @Test

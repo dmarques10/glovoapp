@@ -3,9 +3,13 @@ package com.glovoapp.backender.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import lombok.Setter;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.glovoapp.backender.exception.CourierNotFoundException;
+import com.glovoapp.backender.exception.NumberOfSortsException;
 import com.glovoapp.backender.model.Courier;
 import com.glovoapp.backender.model.Order;
 import com.glovoapp.backender.model.Vehicle;
@@ -15,6 +19,7 @@ import com.glovoapp.backender.sort.SortEnum;
 import com.glovoapp.backender.utils.DistanceCalculator;
 
 @Service
+@Setter
 public class CourierService {
 
 	private final CourierRepository courierRepository;
@@ -22,6 +27,7 @@ public class CourierService {
 
 	@Value("#{'${glovo.boxes.order}'.split(',')}")
 	private List<String> glovoBoxes;
+
 	@Value("#{'${glovo.boxes.sort}'.split(',')}")
 	private List<String> sorts;
 
@@ -30,8 +36,15 @@ public class CourierService {
 		this.orderRepository = orderRepository;
 	}
 
-	public List<Order> getCourierOrders(String courierId) {
+	public List<Order> getCourierOrders(String courierId) throws NumberOfSortsException, CourierNotFoundException {
+		if(sorts.size() != 3){
+			throw new NumberOfSortsException("The number of sort isn't correct.");
+		}
 		Courier courier = courierRepository.findById(courierId);
+		if (courier == null) {
+			throw new CourierNotFoundException(
+				String.format("No courier person is available with provided courier id:%s ", courierId));
+		}
 		return orderRepository.findAll()
 			.stream()
 			.filter(order -> DistanceCalculator.calculateDistance(order.getPickup(), courier.getLocation()) <= 5 ||
