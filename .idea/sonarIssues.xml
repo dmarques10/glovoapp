@@ -203,6 +203,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$USER_HOME$/appdirectRepos/aws-connector/src/main/java/com/appdirect/aws/billing/UsageReportWriter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/appdirectRepos/aws-connector/src/main/java/com/appdirect/aws/quartz/jobs/UsageReportJob.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/appdirectRepos/aws-connector/src/main/java/com/appdirect/aws/service/UsageService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/appdirectRepos/aws-connector/src/main/java/com/appdirect/aws/service/UsageServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$USER_HOME$/glovo/assignment/src/main/java/com/glovoapp/backender/service/CourierService.java">
           <value>
             <set />
